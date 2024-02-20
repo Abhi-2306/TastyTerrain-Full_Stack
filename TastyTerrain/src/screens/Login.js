@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
 
 export default function Login() {
 
@@ -7,7 +8,7 @@ export default function Login() {
     const navigate=useNavigate();
     const handleSubmit=async(e)=>{
         e.preventDefault();
-        console.log(JSON.stringify({email:credentials.email,password:credentials.password,}));
+        // console.log(JSON.stringify({email:credentials.email,password:credentials.password,}));
         const response=await fetch("http://localhost:5000/api/loginuser",{
             method:'POST',
             headers:{
@@ -21,6 +22,8 @@ export default function Login() {
             alert("Enter valid Credentials");
         }
         if(json.success){
+          localStorage.setItem("authToken",json.authToken);
+          console.log(localStorage.getItem("authToken"));
             navigate("/");
         }
     }
@@ -29,6 +32,9 @@ export default function Login() {
     }
   return (
     <>
+    <div>
+        {/* <Navbar /> */}
+      </div>
     <div className="container">
     <form onSubmit={handleSubmit}>
   <div className="mb-3">

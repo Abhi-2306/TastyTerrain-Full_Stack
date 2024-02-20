@@ -1,22 +1,25 @@
 import React from "react";
 
-export default function Card() {
+export default function Card(props) {
+  const options = props.options;
+  const priceOptions = Object.keys(options);
+  const valueOptions = Object.values(options);
   return (
-    <div>
+
       <div>
-        <div
-          className="card mt-3"
-          style={{ width: "20rem" }}
-        >
-          <img src="https://img.freepik.com/free-photo/tasty-burger-isolated-white-background-fresh-hamburger-fastfood-with-beef-cheese_90220-1063.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1708128000&semt=sph" className="card-img-top" alt="..." />
+        <div className="card mt-3" style={{ width: "20rem" }}>
+          <img
+            src={props.imgSrc}
+            className="card-img-top"
+            alt="..."
+            style={{ height: "200px", objectFit: "fill" }}
+            width="500px"
+            height="300px"
+          />
           <div className="card-body ">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title so that it is
-              good
-            </p>
+            <h5 className="card-title">{props.foodName}</h5>
             <div className="container">
-              <select className="m-2 h-100  bg-success rounded">
+              <select className="m-2 h-100 text-white bg-success rounded">
                 {Array.from(Array(6), (e, i) => {
                   return (
                     <option key={i + 1} value={i + 1}>
@@ -25,17 +28,20 @@ export default function Card() {
                   );
                 })}
               </select>
-              <select className="m-2 h-100  bg-success rounded">
-                <option value="Half">Half</option>
-                <option value="Full">Full</option>
+              <select className="m-2 h-100 text-white bg-success rounded">
+                {priceOptions.map((data) => {
+                  return (
+                    <option key={data} value={data}>
+                      {data}
+                    </option>
+                  );
+                })}
               </select>
-              <div className="d-inline h-100 fs-7">
-                <span>Total Price</span>
-              </div>
+              <span className="fs-5">Total Price</span>
             </div>
+            <button className="btn btn-success justify-center ms-2">Add to Cart</button>
           </div>
         </div>
       </div>
-    </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
+import Navbar from '../Components/Navbar';
 
 export default function SignUp() {
     const [credentials, setcredentials] = useState({name:"",password:"",geolocation:"",email:""});
@@ -28,6 +29,9 @@ export default function SignUp() {
     }
   return (
     <>
+    <div>
+        {/* <Navbar/> */}
+      </div>
     <div className="container">
     <form onSubmit={handleSubmit}>
   <div className="mb-3">
