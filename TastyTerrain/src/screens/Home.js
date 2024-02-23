@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Card from "../Components/Card";
-import Carousel from "../Components/Carousel";
+// import Carousel from "../Components/Carousel";
 
 export default function Home() {
-  const [search,setSearch]=useState("");
+  const [search, setSearch] = useState("");
   const [foodItem, setFoodItem] = useState([]);
   const [foodCategory, setFoodCategory] = useState([]);
 
@@ -48,7 +48,7 @@ export default function Home() {
                   placeholder="Search"
                   aria-label="Search"
                   value={search}
-                  onChange={(e)=>setSearch(e.target.value)}
+                  onChange={(e) => setSearch(e.target.value)}
                 />
                 {/* <button
                   className="btn btn-outline-success bg-success text-white"
@@ -63,7 +63,7 @@ export default function Home() {
                 src="https://source.unsplash.com/random/300*300?burger"
                 className="d-block w-100"
                 alt="..."
-                style={{objectFit:"fill"}}
+                style={{ objectFit: "fill" }}
               />
             </div>
             <div className="carousel-item">
@@ -118,15 +118,18 @@ export default function Home() {
                   <hr />
                   {foodItem !== "[]" ? (
                     foodItem
-                      .filter((item) => (item.CategoryName === data.CategoryName) && (item.name.toLowerCase().includes(search.toLowerCase())))
+                      .filter(
+                        (item) =>
+                          item.CategoryName === data.CategoryName &&
+                          item.name.toLowerCase().includes(search.toLowerCase())
+                      )
                       .map((filteredData) => {
                         return (
                           <div className="col-12 col-md-6 col-lg-3">
                             <div key={filteredData._id}>
                               <Card
-                                foodName={filteredData.name}
+                                foodItem={filteredData}
                                 options={filteredData.options[0]}
-                                imgSrc={filteredData.img}
                               ></Card>
                             </div>
                           </div>
