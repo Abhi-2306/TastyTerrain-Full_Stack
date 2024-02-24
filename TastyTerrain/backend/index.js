@@ -12,6 +12,13 @@ app.use((req, res, next) => {
   );
   next();
 });
+app.use(cors(
+  {
+    origin:["https://tasty-terrain-full-stack-zjbd.vercel.app/"],
+    methods:["POST","GET"],
+    credentials:true
+  }
+))
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
