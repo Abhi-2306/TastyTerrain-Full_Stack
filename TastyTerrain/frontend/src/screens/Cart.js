@@ -1,5 +1,5 @@
 import React from "react";
-import Delete from "@material-ui/icons/Delete";
+// import Delete from "@material-ui/icons/Delete";
 import { useCart, useDispatchCart } from "../Components/ContextReducer";
 export default function Cart() {
   let data = useCart();
@@ -21,7 +21,7 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5000/api/orderData", {
+    let response = await fetch("https://tasty-terrain-full-stack.vercel.app/api/orderData", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",
@@ -68,12 +68,14 @@ export default function Cart() {
                 <td>{food.size}</td>
                 <td>{food.price}</td>
                 <td>
-                  <button type="button" className="btn p-0">
-                    <Delete
+                  <button type="button btn-primary btn" value="-" className="btn p-0" onClick={() => {
+                        dispatch({ type: "REMOVE", index: index });
+                      }}>
+                    {/* <Button
                       onClick={() => {
                         dispatch({ type: "REMOVE", index: index });
                       }}
-                    />
+                    /> */}
                   </button>{" "}
                 </td>
               </tr>
