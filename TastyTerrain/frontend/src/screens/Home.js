@@ -192,6 +192,8 @@ export default function Home() {
       }
 
       let data = await response.json();
+      console.log(response);
+      
       setFoodItem(data[0] || []);
       setFoodCategory(data[1] || []);
       setLoading(false);
