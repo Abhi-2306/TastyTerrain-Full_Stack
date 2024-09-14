@@ -193,6 +193,8 @@ export default function Home() {
       }
 
       let data = await response.json();
+      console.log(data);
+      
       console.log("Food items:", data[0]);
 console.log("Food categories:", data[1]);
 
