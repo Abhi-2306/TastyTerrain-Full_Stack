@@ -186,13 +186,16 @@ export default function Home() {
           "Content-Type": "application/json",
         },
       });
-
+      
+      console.log(response);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
 
       let data = await response.json();
-      console.log(response);
+      console.log("Food items:", data[0]);
+console.log("Food categories:", data[1]);
+
       
       setFoodItem(data[0] || []);
       setFoodCategory(data[1] || []);
