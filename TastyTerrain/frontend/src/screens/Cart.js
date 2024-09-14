@@ -21,7 +21,7 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("https://tasty-terrain-full-stack.vercel.app/api/orderData", {
+    let response = await fetch("http://localhost:5000/api/orderData", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",
@@ -70,7 +70,7 @@ export default function Cart() {
                 <td>
                   <button type="button btn-primary btn" value="-" className="btn p-0" onClick={() => {
                         dispatch({ type: "REMOVE", index: index });
-                      }}>
+                      }}>-
                     {/* <Button
                       onClick={() => {
                         dispatch({ type: "REMOVE", index: index });

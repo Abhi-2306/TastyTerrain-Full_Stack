@@ -11,7 +11,7 @@ export default function Home() {
   const [foodCategory, setFoodCategory] = useState([]);
 
   const loadData = async () => {
-    let response = await fetch("https://tasty-terrain-full-stack.vercel.app/api/foodData", {
+    let response = await fetch("http://localhost:5000/api/foodData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export default function Home() {
             </div>
             <div className="carousel-item active">
               <img
-                src="https://source.unsplash.com/random/300*300?burger"
+                src="https://olo-images-live.imgix.net/4c/4c565365175945b38a542e95a3645f34.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=1200&h=800&fit=fill&fm=png32&bg=transparent&s=3118c72e541b3bd01069f311e1825d50"
                 className="d-block w-100"
                 alt="..."
                 style={{ objectFit: "fill" }}
@@ -68,14 +68,14 @@ export default function Home() {
             </div>
             <div className="carousel-item">
               <img
-                src="https://source.unsplash.com/random/300*300?pizza"
+                src="https://kauveryhospital.com/blog/wp-content/uploads/2021/04/pizza-5179939_960_720.jpg"
                 className="d-block w-100"
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                src="https://source.unsplash.com/random/300*300?burger"
+                src="https://www.maggiarabia.com/sites/default/files/srh_recipes/30c29da8aec1403f42e82552d927abab.png"
                 className="d-block w-100"
                 alt="..."
               />

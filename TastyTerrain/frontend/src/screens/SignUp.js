@@ -21,7 +21,7 @@ export default function SignUp() {
         location: credentials.geolocation,
       })
     );
-    const response = await fetch("https://tasty-terrain-full-stack.vercel.app/api/createuser", {
+    const response = await fetch("http://localhost:5000/api/createuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
